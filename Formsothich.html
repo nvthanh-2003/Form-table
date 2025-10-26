@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Form mẫu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            padding: 20px;
+        }
+        .card {
+            border: 2px solid #cde;
+            padding: 16px;
+            border-radius: 6px;
+            background: #fff;
+            max-width: 720px;
+            margin: 0 auto 20px;
+        }
+        .card h2 {
+            background: #ff6b21;
+            color: #fff;
+            padding: 8px 12px;
+            margin: -16px -16px 12px;
+            border-radius: 6px 6px 0 0;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 8px 16px;
+            align-items: center;
+        }
+        label {
+            text-align: right;
+            padding-right: 8px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: #f7f7f7;
+        }
+        .section h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            color: #0a4a8e;
+        }
+        .row-actions {
+            grid-column: 2 / 3;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- SỞ THÍCH CỦA BẠN -->
+<section class="card" aria-labelledby="title-sothich">
+    <h2 id="title-sothich">SỞ THÍCH CỦA BẠN</h2>
+    <form action="#" method="post" autocomplete="on">
+        <div><label for="hoten">Họ và tên</label></div>
+        <div><input type="text" id="hoten" name="youname" placeholder="Nhập họ tên" /></div>
+
+        <div><label for="email1">Email</label></div>
+        <div><input type="email" id="email1" name="email" placeholder="email@example.com" /></div>
+
+        <div><label>Sở thích</label></div>
+        <div>
+            <label><input type="checkbox" name="hobby[]" value="thethao" /> Thể thao</label>
+            <label style="margin-left:12px;"><input type="checkbox" name="hobby[]" value="amnhac" /> Âm nhạc</label>
+            <label style="margin-left: 12px"><input type="checkbox" name="hobby[]" value="doc" /> Đọc sách</label> </br>
+            <label><input type="checkbox" name="hobby[]" value="luotweb" /> Lướt web</label>
+            <label style="margin-left:12px;"><input type="checkbox" name="hobby[]" value="choigame" /> Chơi game</label>
+            <label style="margin-left:12px;"><input type="checkbox" name="hobby[]" value="dienanh" /> Điện ảnh</label> </br>
+            <label><input type="checkbox" name="hobby[]" value="dulich" /> Du lịch</label>
+        </div>
+
+        <div class="row-actions" style="margin-top:6px;">
+            <button type="submit">Gửi thông tin</button>
+            <button type="reset">Nhập lại</button>
+        </div>
+    </form>
+</section>
+
+<!-- ĐĂNG KÝ HỌC VIÊN -->
+<section class="card" aria-labelledby="title-dangky">
+    <h2 id="title-dangky" style="background:#ffd400; color:#0a4a8e; margin:-16px -16px 12px; border-radius:6px 6px 0 0; padding:8px 12px;">
+        ĐĂNG KÝ HỌC VIÊN
+    </h2>
+    <form action="#" method="post" autocomplete="on">
+        <div><label for="hoten2">Họ và tên</label></div>
+        <div><input type="text" id="hoten2" name="hoten" placeholder="Nhập họ tên" /></div>
+
+        <div><label for="ngaysinh">Ngày sinh</label></div>
+        <div><input type="date" id="ngaysinh" name="ngaysinh" /></div>
+
+        <div><label>Giới tính</label></div>
+        <div>
+            <label><input type="radio" name="gioitinh" value="nam" /> Nam</label>
+            <label style="margin-left:12px;"><input type="radio" name="gioitinh" value="nu" /> Nữ</label>
+        </div>
+
+        <div><label for="diachi">Địa chỉ</label></div>
+        <div><textarea id="diachi" name="diachi" rows="3" placeholder="Nhập địa chỉ"></textarea></div>
+
+        <div><label for="lop">Lớp</label></div>
+        <div>
+            <select id="lop" name="lop">
+                <option value="">— Chọn lớp —</option>
+                <option value="A1">A1</option>
+                <option value="B2">B2</option>
+                <option value="C3">C3</option>
+            </select>
+        </div>
+
+        <div><label for="email2">Email</label></div>
+        <div><input type="email" id="email2" name="email" placeholder="email@example.com" /></div>
+
+        <div><label for="phone">Điện thoại</label></div>
+        <div><input type="tel" id="phone" name="phone" placeholder="0399..." /></div>
+
+        <div class="row-actions" style="margin-top:6px;">
+            <button type="submit">Đăng ký</button>
+            <button type="reset">Nhập lại</button>
+        </div>
+    </form>
+</section>
+
+</body>
+</html>
