@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Thời khóa biểu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f7fb;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #1a5dbb;
+            font-size: 40px;
+            margin: 10px 0 20px;
+        }
+        .card {
+            width: 100%;
+            max-width: 980px;
+            margin: 0 auto;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0,0,0,.05);
+            padding: 10px;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #0b58a2;
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        thead th {
+            background: #ffcc00;
+            color: #000;
+            font-weight: bold;
+        }
+        tfoot td {
+            background: #f6f6f6;
+        }
+        /* Các ô tiêu đề màu vàng cho ngày Thứ */
+        .day-header {
+            background: #ffd000;
+        }
+        .orange {
+            background: #f5a623;
+        }
+        .blue {
+            background: #1e88e5;
+            color: #fff;
+        }
+        .editable {
+            background: #fff6e0;
+        }
+        input[type="text"] {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 6px;
+            font-size: 14px;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>THỜI KHÓA BIỂU</h1>
+
+    <div class="info">
+        <div>Lớp: T0908I</div>
+        <div>Thời gian học: 13h30 - 17h30</div>
+    </div>
+
+    <div class="info" style="justify-content: space-between;">
+        <div>Giáo viên: KhoaNV</div>
+        <div>Ngày học: Thứ 3, 5, 7</div>
+    </div>
+
+    <table id="timetable" aria-label="Thời khóa biểu">
+        <thead>
+        <tr>
+            <th>Tuần</th>
+            <th>Ngày bắt đầu</th>
+            <th>Ngày kết thúc</th>
+            <th class="day-header" colspan="3">Môn học</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="blue">Thứ 3</th>
+            <th class="blue">Thứ 5</th>
+            <th class="blue">Thứ 7</th>
+        </tr>
+        </thead>
+        <tbody id="rows">
+        <tr data-week="01">
+            <td>01</td>
+            <td>01/09/2009</td>
+            <td>05/09/2009</td>
+            <td>CF - T1, L1</td>
+            <td>CF - T2, L2</td>
+            <td>CF - T3, L3</td>
+        </tr>
+        <tr data-week="02">
+            <td>02</td>
+            <td>08/09/2009</td>
+            <td>12/09/2009</td>
+            <td>CF - T4, L4</td>
+            <td>CF - Written Test</td>
+            <td>C - T1, L1</td>
+        </tr>
+        <!-- Thêm dòng khác khi cần -->
+        </tbody>
+    </table>
+
+<!--    <div style="margin-top: 10px; font-size:12px; color:#555;">-->
+<!--        Gắn thẻ: nhấn đúp để chỉnh sửa ô. Lưu bằng Enter, bỏ qua bằng Esc.-->
+<!--    </div>-->
+</div>
+
+<!--<script>-->
+<!--    // Cho phép chỉnh sửa ô trong bảng (tuỳ chọn dễ dùng)-->
+<!--    const rows = document.querySelectorAll('#rows tr');-->
+<!--    rows.forEach(row => {-->
+<!--        row.querySelectorAll('td').forEach((td, idx) => {-->
+<!--            // Các ô có thể chỉnh sửa (ví dụ 4-6)-->
+<!--            if (idx >= 3) {-->
+<!--                td.classList.add('editable');-->
+<!--                td.addEventListener('dblclick', () => {-->
+<!--                    if (td.querySelector('input')) return;-->
+<!--                    const val = td.textContent;-->
+<!--                    td.innerHTML = '<input type="text" />';-->
+<!--                    const input = td.querySelector('input');-->
+<!--                    input.value = val;-->
+<!--                    input.focus();-->
+
+<!--                    input.addEventListener('keydown', e => {-->
+<!--                        if (e.key === 'Enter') {-->
+<!--                            td.textContent = input.value;-->
+<!--                        } else if (e.key === 'Escape') {-->
+<!--                            td.textContent = val;-->
+<!--                        }-->
+<!--                    });-->
+<!--                    input.addEventListener('blur', () => {-->
+<!--                        td.textContent = input.value;-->
+<!--                    });-->
+<!--                });-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+</body>
+</html>
