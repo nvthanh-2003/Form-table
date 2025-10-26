@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bàn Cờ Vua & Lịch - Netscape Navigator Style</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Căn giữa các khối nội dung */
+            padding: 20px;
+            margin: 0;
+            background-color: #f0f0f0; /* Màu nền nhẹ */
+            gap: 50px; /* Khoảng cách giữa 2 bảng */
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .chessboard-container {
+            display: flex;
+            flex-direction: column;
+            /* Tắt border ngoài để sử dụng màu cam làm nền */
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .square {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .row:nth-child(odd) .square:nth-child(odd) { background-color: #fff; }
+        .row:nth-child(odd) .square:nth-child(even) { background-color: #000; }
+        .row:nth-child(even) .square:nth-child(odd) { background-color: #000; }
+        .row:nth-child(even) .square:nth-child(even) { background-color: #fff; }
+
+        .header-row, .row-labels {
+            background-color: #ffb957; /* Màu cam giống hình */
+            color: #000;
+        }
+
+        .header-row {
+            display: flex;
+            padding-left: 50px; /* Bằng chiều rộng của cột nhãn hàng */
+        }
+
+        .header-col {
+            width: 50px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .board-content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .row-labels {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .row-label-item {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .calendar-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00008b; /* Màu xanh đậm */
+            margin: 20px 0 10px 0;
+        }
+
+        .calendar-container {
+            width: 700px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            background-color: #fff;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Hàng Tiêu Đề Ngày */
+        .calendar-table th {
+            font-size: 16px;
+            padding: 8px 0;
+            text-align: center;
+            border: 1px solid #000;
+            font-weight: bold;
+            color: #fff;
+            vertical-align: top;
+        }
+
+        /* Màu nền cho các cột Ngày trong tuần */
+        .calendar-table th:nth-child(1) { background-color: #c90000; } /* CN - Đỏ */
+        .calendar-table th:nth-child(2),
+        .calendar-table th:nth-child(3),
+        .calendar-table th:nth-child(4),
+        .calendar-table th:nth-child(5),
+        .calendar-table th:nth-child(6) { background-color: #ffaa00; } /* T2-T6 - Cam/Vàng */
+        .calendar-table th:nth-child(7) { background-color: #0000ff; } /* T7 - Xanh dương */
+
+        /* Ô Ngày trong Lịch */
+        .calendar-table td {
+            height: 80px;
+            border: 1px solid #000;
+            padding: 5px;
+            vertical-align: top;
+            font-size: 18px;
+            position: relative;
+        }
+
+        .day-main {
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Màu Ngày */
+        .calendar-table tr td:nth-child(1) .day-main { color: #c90000; } /* CN */
+        .calendar-table tr td:nth-child(7) .day-main { color: #0000ff; } /* T7 */
+
+        /* Chữ số phụ nhỏ (âm lịch) */
+        .day-sub {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Giả lập đường viền lượn sóng */
+        .wave-border {
+            border-bottom: 5px solid #fff;
+            box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5) inset;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-content-chess">
+    <div class="section-title">Bàn cờ vua - Netscape Navigator</div>
+
+    <div class="chessboard-container">
+        <div class="header-row">
+            <div class="header-col">1</div><div class="header-col">2</div><div class="header-col">3</div><div class="header-col">4</div>
+            <div class="header-col">5</div><div class="header-col">6</div><div class="header-col">7</div><div class="header-col">8</div>
+        </div>
+
+        <div class="board-content">
+            <div class="row-labels">
+                <div class="row-label-item">A</div><div class="row-label-item">B</div><div class="row-label-item">C</div><div class="row-label-item">D</div>
+                <div class="row-label-item">E</div><div class="row-label-item">F</div><div class="row-label-item">G</div><div class="row-label-item">H</div>
+            </div>
+
+            <div class="chessboard">
+                <div class="row"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+                <div class="row"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+                <div class="row"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+                <div class="row"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+                <div class="row"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+                <div class="row"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+                <div class="row"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+                <div class="row"><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="calendar-main-content">
+    <div class="section-title">Lịch tháng 10/2009 - Netscape Navigator</div>
+    <div class="calendar-container">
+        <div class="calendar-title">Tháng 10 - October</div>
+
+        <table class="calendar-table">
+            <thead>
+            <tr>
+                <th>C.Nhật<br>Sun</th><th>T.Hai<br>Mon</th><th>T.Ba<br>Tue</th><th>T.Tư<br>Wed</th>
+                <th>T.Năm<br>Thu</th><th>T.Sáu<br>Fri</th><th>T.Bảy<br>Sat</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td></td><td></td><td></td><td></td>
+                <td><span class="day-main">1</span><span class="day-sub">13</span></td>
+                <td><span class="day-main">2</span><span class="day-sub">14</span></td>
+                <td><span class="day-main">3</span><span class="day-sub">15</span></td>
+            </tr>
+            <tr>
+                <td><span class="day-main">4</span><span class="day-sub">16</span></td>
+                <td><span class="day-main">5</span><span class="day-sub">17</span></td>
+                <td><span class="day-main">6</span><span class="day-sub">18</span></td>
+                <td><span class="day-main">7</span><span class="day-sub">19</span></td>
+                <td><span class="day-main">8</span><span class="day-sub">20</span></td>
+                <td><span class="day-main">9</span><span class="day-sub">21</span></td>
+                <td><span class="day-main">10</span><span class="day-sub">22</span></td>
+            </tr>
+            <tr>
+                <td><span class="day-main">11</span><span class="day-sub">23</span></td>
+                <td><span class="day-main">12</span><span class="day-sub">24</span></td>
+                <td><span class="day-main">13</span><span class="day-sub">25</span></td>
+                <td><span class="day-main">14</span><span class="day-sub">26</span></td>
+                <td><span class="day-main">15</span><span class="day-sub">27</span></td>
+                <td><span class="day-main">16</span><span class="day-sub">28</span></td>
+                <td><span class="day-main">17</span><span class="day-sub">29</span></td>
+            </tr>
+            <tr>
+                <td><span class="day-main">18</span><span class="day-sub">30</span></td>
+                <td><span class="day-main">19</span><span class="day-sub">1</span></td>
+                <td><span class="day-main">20</span><span class="day-sub">2</span></td>
+                <td><span class="day-main">21</span><span class="day-sub">3</span></td>
+                <td><span class="day-main">22</span><span class="day-sub">4</span></td>
+                <td><span class="day-main">23</span><span class="day-sub">5</span></td>
+                <td><span class="day-main">24</span><span class="day-sub">6</span></td>
+            </tr>
+            <tr>
+                <td><span class="day-main">25</span><span class="day-sub">7</span></td>
+                <td><span class="day-main">26</span><span class="day-sub">8</span></td>
+                <td><span class="day-main">27</span><span class="day-sub">9</span></td>
+                <td><span class="day-main">28</span><span class="day-sub">10</span></td>
+                <td><span class="day-main">29</span><span class="day-sub">11</span></td>
+                <td><span class="day-main">30</span><span class="day-sub">12</span></td>
+                <td><span class="day-main">31</span><span class="day-sub">13</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="wave-border"></div>
+    </div>
+</div>
+
+</body>
+</html>
